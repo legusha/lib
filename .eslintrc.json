@@ -1,0 +1,165 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "standard-with-typescript",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/recommended",
+        "plugin:import/typescript",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "prettier",
+        "@typescript-eslint"
+    ],
+    "parserOptions": {
+        "project": "./tsconfig.json",
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": false,
+            "impliedStrict": true
+        }
+    },
+    "rules": {
+        // Strict TypeScript rules
+        "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/explicit-module-boundary-types": "error",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/no-floating-promises": "error",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "@typescript-eslint/consistent-type-definitions": [
+            "error",
+            "interface"
+        ],
+        "@typescript-eslint/consistent-type-imports": [
+            "error",
+            {
+                "prefer": "type-imports"
+            }
+        ],
+        "@typescript-eslint/restrict-plus-operands": [
+            "error"
+        ],
+        "@typescript-eslint/strict-boolean-expressions": 0,
+        "@typescript-eslint/return-await": 0,
+        "@typescript-eslint/comma-dangle": 0,
+        "@typescript-eslint/no-var-requires": 0,
+        "@typescript-eslint/promise-function-async": 1,
+        "@typescript-eslint/no-confusing-void-expression": 0,
+        "@typescript-eslint/no-misused-promises": 0,
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-extraneous-class": 0,
+        "@typescript-eslint/restrict-template-expressions": "off",
+        "@typescript-eslint/explicit-member-accessibility": [
+            "error",
+            {
+                "accessibility": "explicit"
+            }
+        ],
+        "@typescript-eslint/prefer-readonly": "error",
+        "padding-line-between-statements": [
+            "error",
+            {
+                "blankLine": "always",
+                "prev": "*",
+                "next": "return"
+            },
+            {
+                "blankLine": "always",
+                "prev": "*",
+                "next": "if"
+            },
+            {
+                "blankLine": "always",
+                "prev": "*",
+                "next": "try"
+            }
+        ],
+        "no-debugger": "off",
+        "no-unreachable-loop": "off",
+        "@typescript-eslint/no-dynamic-delete": "off",
+        // Import rules to avoid unused and incorrect imports
+        "import/no-unresolved": "error",
+        "import/no-duplicates": "error",
+        "import/order": [
+            "error",
+            {
+                "alphabetize": {
+                    "order": "asc"
+                }
+            }
+        ],
+        // Code cleanliness rules
+        "no-console": "off",
+        "no-restricted-syntax": [
+            "error",
+            "WithStatement"
+        ],
+        "no-var": "error",
+        "prefer-const": "error",
+        "eqeqeq": [
+            "error",
+            "always"
+        ],
+        "no-shadow": "error",
+        "no-use-before-define": [
+            "error",
+            {
+                "functions": false,
+                "classes": true
+            }
+        ],
+        // Prettier integration for formatting
+        "prettier/prettier": [
+            "error",
+            {
+                "singleQuote": true,
+                "semi": false,
+                "bracketSpacing": true,
+                "arrowParens": "avoid",
+                "bracketSameLine": false,
+                "trailingComma": "all",
+                "tabWidth": 4
+            }
+        ],
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
+        "@typescript-eslint/non-nullable-type-assertion-style": 2,
+        "@typescript-eslint/no-throw-literal": "off"
+    },
+    "overrides": [
+        {
+            "files": [
+                "*.ts",
+                "*.tsx"
+            ],
+            "rules": {
+                "@typescript-eslint/restrict-plus-operands": [
+                    "error"
+                ]
+            }
+        }
+    ],
+    "settings": {
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true
+            }
+        }
+    }
+}
