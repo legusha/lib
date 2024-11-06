@@ -54,18 +54,22 @@ const config = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+        alias: {
+            "@lib": path.resolve(__dirname, "./src/"),
+            '@usage': path.resolve(__dirname, './src/usage'),
+        },
     },
 };
 
 module.exports = () => {
     if (isProduction) {
         config.mode = 'production';
-        
+
         config.plugins.push(new MiniCssExtractPlugin());
-        
-        
-    } else {
-        config.mode = 'development';
+
+        return config
     }
+
+    config.mode = 'development';
     return config;
 };

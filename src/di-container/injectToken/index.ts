@@ -1,0 +1,1 @@
+export { getInjectorForToken } from './injectToken'
