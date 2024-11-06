@@ -1,5 +1,5 @@
 import 'reflect-metadata'
-import type { InjectableConfig } from 'src/di-container'
+import type { InjectableConfig } from '@lib/di-container'
 
 const defaultConfig = {
     singleton: true,

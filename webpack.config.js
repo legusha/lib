@@ -54,6 +54,10 @@ const config = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+        alias: {
+            "@lib": path.resolve(__dirname, "./src/"),
+            '@usage': path.resolve(__dirname, './src/usage'),
+        },
     },
 };
 

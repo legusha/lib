@@ -1,8 +1,13 @@
 import type { DIContainer } from '@lib/di-container'
 
-export interface ContainerValue {
-    data: string
+export interface Example {
+    value: string
 }
 
-export interface Container<Value extends ContainerValue>
+export interface ContainerDependencies {
+    data: string
+    example: Example
+}
+
+export interface Container<Value extends ContainerDependencies>
     extends DIContainer<Value> {}
