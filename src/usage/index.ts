@@ -1,5 +1,5 @@
-import { container, TOKENS } from './app-container'
-import { InjectClass, InjectToken } from '@usage/app-container/inject'
+import { container, TOKENS } from './appContainer'
+import { InjectClass, InjectToken } from '@usage/appContainer/inject'
 import type { Example } from '@usage/container'
 
 @InjectClass()

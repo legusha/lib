@@ -1,9 +1,9 @@
-import type { InjectableConfig } from '@lib/di-container'
+import type { InjectableConfig } from '@lib/diContainer'
 import type {
     DIContainer,
     DIContainerConfig,
     Injectable,
-} from '@lib/di-container/container'
+} from '@lib/diContainer/container'
 
 export class DIContainerImpl<Value> implements DIContainer<Value> {
     public constructor(private readonly config: DIContainerConfig) {}

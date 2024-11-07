@@ -1,7 +1,7 @@
 import {
     META_KEY_FOR_CLASS,
     META_KEY_FOR_TOKEN,
-} from '@usage/app-container/inject'
+} from '@usage/appContainer/inject'
 import type { ContainerDependencies } from '@usage/container'
 import { AppContainer } from '@usage/container'
 
