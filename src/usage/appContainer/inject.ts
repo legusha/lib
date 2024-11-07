@@ -1,4 +1,4 @@
-import { getInjectorForClass, getInjectorForToken } from '@lib/di-container'
+import { getInjectorForClass, getInjectorForToken } from '@lib/diContainer'
 
 export const META_KEY_FOR_CLASS = 'metaClass' as const
 export const META_KEY_FOR_TOKEN = 'metaTokens' as const

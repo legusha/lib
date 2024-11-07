@@ -1,4 +1,4 @@
-import type { DIContainer } from '@lib/di-container'
+import type { DIContainer } from '@lib/diContainer'
 
 export interface Example {
     value: string
