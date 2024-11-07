@@ -1,1 +1,1 @@
-export { ExampleCircuitBreaker } from './ExampleCircuitBreaker'
+export { ExampleCircuitBreaker } from './exampleCircuitBreaker'

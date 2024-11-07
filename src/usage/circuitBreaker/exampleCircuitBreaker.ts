@@ -1,6 +1,6 @@
+import type { ExampleCircuitBreakerData } from './exampleCircuitBreaker.types'
+import { ExampleCircuitBreakerError } from './exampleCircuitBreakerError'
 import { CircuitBreaker } from '@lib/circuitBreaker'
-import type { ExampleCircuitBreakerData } from '@usage/circuitBreaker/ExampleCircuitBreaker.types'
-import { ExampleCircuitBreakerError } from '@usage/circuitBreaker/ExampleCircuitBreakerError'
 
 export class ExampleCircuitBreaker extends CircuitBreaker {
     public async execute<Data>(
