@@ -1,5 +1,8 @@
 import type { instance } from '@lib/logger/logger'
 
-export type Logger = typeof instance | typeof console
-export type LoggerProperties = keyof typeof console | keyof typeof instance
-export type LoggerGet = (...args: unknown[]) => unknown
+export type Logger = typeof instance | Console
+export type LoggerProperties = keyof Console | keyof typeof instance
+export type LoggerGetOutput = (...args: unknown[]) => unknown
+export interface LoggerOptions {
+    printLogs: boolean
+}

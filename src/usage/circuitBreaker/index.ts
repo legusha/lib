@@ -1,1 +1,0 @@
-export { ExampleCircuitBreaker } from './exampleCircuitBreaker'

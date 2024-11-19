@@ -1,9 +1,6 @@
-import {
-    META_KEY_FOR_CLASS,
-    META_KEY_FOR_TOKEN,
-} from '@usage/appContainer/inject'
-import type { ContainerDependencies } from '@usage/container'
-import { AppContainer } from '@usage/container'
+import { AppContainer } from './container'
+import type { ContainerDependencies } from './container.types'
+import { META_KEY_FOR_CLASS, META_KEY_FOR_TOKEN } from './inject'
 
 export const containerConfig = {
     metaDataKey: META_KEY_FOR_CLASS,
@@ -23,3 +20,4 @@ const dataForToken = 'data example'
 container.register(TOKENS.data, dataForToken)
 
 export { container }
+export * from './container.types'

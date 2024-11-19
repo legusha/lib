@@ -1,13 +1,13 @@
-import type { ExampleCircuitBreakerData } from './exampleCircuitBreaker.types'
-import { ExampleCircuitBreakerError } from './exampleCircuitBreakerError'
+import type { AppCircuitBreakerData } from './appCircuitBreaker.types'
+import { AppCircuitBreakerError } from './appCircuitBreakerError'
 import { CircuitBreaker } from '@lib/circuitBreaker'
 
-export class ExampleCircuitBreaker extends CircuitBreaker {
+export class AppCircuitBreaker extends CircuitBreaker {
     public async execute<Data>(
         action: (...args: unknown[]) => Promise<Data>,
         ...args: unknown[]
     ): Promise<Data>
-    public override async execute<Data extends ExampleCircuitBreakerData<Data>>(
+    public override async execute<Data extends AppCircuitBreakerData<Data>>(
         action: (...args: unknown[]) => Promise<Data>,
         ...args: unknown[]
     ): Promise<Data> {
@@ -38,9 +38,7 @@ export class ExampleCircuitBreaker extends CircuitBreaker {
                 return
             }
 
-            throw new ExampleCircuitBreakerError(
-                ExampleCircuitBreakerError.TYPE.open,
-            )
+            throw new AppCircuitBreakerError(AppCircuitBreakerError.TYPE.open)
         }
     }
 }
