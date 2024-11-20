@@ -1,28 +1,6 @@
-import { container, TOKENS } from './appContainer'
 import type { CircuitBreakerOptions } from '@lib/circuitBreaker/circuitBreaker.types'
-import { InjectClass, InjectToken } from '@usage/appContainer/inject'
-import { ExampleCircuitBreaker } from '@usage/circuitBreaker'
-import type { Example } from '@usage/container'
-
-@InjectClass()
-class ExampleSecond {
-    public constructor(
-        @InjectToken(TOKENS.data) private readonly data: string,
-    ) {
-        console.log(`Data in ${this.constructor.name}:`, this.data)
-    }
-}
-
-@InjectClass()
-class ExampleImpl implements Example {
-    public value: string = ''
-    public constructor(private readonly exampleSecond: ExampleSecond) {
-        console.log(this.exampleSecond)
-    }
-}
-
-const example = container.resolve<'example'>(ExampleImpl)
-console.log(example)
+import { AppCircuitBreaker } from '@usage/appCircuitBreaker'
+import { logger } from '@usage/logger'
 
 const circuitBreakerOptions: CircuitBreakerOptions = {
     failureThreshold: 3,
@@ -32,7 +10,7 @@ const circuitBreakerOptions: CircuitBreakerOptions = {
 const wait = async (ms: number): Promise<void> =>
     new Promise(resolve => setTimeout(resolve, ms))
 
-const circuitBreaker = new ExampleCircuitBreaker(circuitBreakerOptions)
+const circuitBreaker = new AppCircuitBreaker(circuitBreakerOptions)
 const fns = [
     async () => ({ data: 'ok', error: null }),
     async () => ({ data: null, error: 'fail' }),
@@ -51,9 +29,9 @@ void (async () => {
         try {
             // @ts-expect-error
             const { data } = await circuitBreaker.execute(fn)
-            console.log(data)
+            logger.log(data)
         } catch (e) {
-            console.error(e)
+            logger.error(e)
         }
     }
 })()

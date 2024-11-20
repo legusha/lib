@@ -8,4 +8,4 @@ export interface ResponseError {
     error: string
 }
 
-export type ExampleCircuitBreakerData<Data> = Response<Data> | ResponseError
+export type AppCircuitBreakerData<Data> = Response<Data> | ResponseError
