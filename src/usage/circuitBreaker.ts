@@ -1,6 +1,6 @@
 import type { CircuitBreakerOptions } from '@lib/circuitBreaker/circuitBreaker.types'
 import { AppCircuitBreaker } from '@usage/appCircuitBreaker'
-import { logger } from '@usage/logger'
+import { container } from '@usage/appContainer'
 
 const circuitBreakerOptions: CircuitBreakerOptions = {
     failureThreshold: 3,
@@ -11,6 +11,8 @@ const wait = async (ms: number): Promise<void> =>
     new Promise(resolve => setTimeout(resolve, ms))
 
 const circuitBreaker = new AppCircuitBreaker(circuitBreakerOptions)
+const logger = container.resolve<'logger'>('logger')
+
 const fns = [
     async () => ({ data: 'ok', error: null }),
     async () => ({ data: null, error: 'fail' }),
