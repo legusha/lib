@@ -1,8 +1,8 @@
+type TargetKey<Target> = Record<keyof Target, Target[keyof Target]>
+
 export const getInjectorForToken =
     (key: string) =>
-    <Target extends Record<keyof Target, Target[keyof Target]>>(
-        token: string | symbol,
-    ) => {
+    <Target extends TargetKey<Target>>(token: string | symbol) => {
         return (
             target: Target,
             propertyKey: string | symbol | undefined,

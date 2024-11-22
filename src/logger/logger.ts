@@ -1,6 +1,7 @@
 import type {
     Logger,
     LoggerGetOutput,
+    LoggerMethod,
     LoggerOptions,
     LoggerProperties,
 } from './logger.types'
@@ -16,12 +17,15 @@ const handler = {
 }
 
 function get(target: Logger, propKey: LoggerProperties): LoggerGetOutput {
-    const origin = target[propKey]
-    const isFunction = typeof origin === 'function'
+    const property = target[propKey]
+    const isFunction = typeof property === 'function'
 
     if (isFunction) {
         return (...args: unknown[]) => {
-            if (propKey === 'error') {
+            const origin = property as LoggerMethod
+            const isPropertyError = propKey === 'error'
+
+            if (isPropertyError) {
                 return origin(...args)
             }
 
@@ -36,10 +40,10 @@ function get(target: Logger, propKey: LoggerProperties): LoggerGetOutput {
         }
     }
 
-    return origin
+    return property
 }
 
-export const instance = Object.create(loggerWithOptions)
+const instance: Logger = Object.create(loggerWithOptions)
 export const createLogger = (options: LoggerOptions): Logger => {
     const loggerProxied = new Proxy(instance, handler)
     loggerProxied.printLogs = options.printLogs
