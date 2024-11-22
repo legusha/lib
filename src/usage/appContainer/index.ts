@@ -7,12 +7,10 @@ export const containerConfig = {
     metaDataTokenKey: META_KEY_FOR_TOKEN,
 }
 
-export const TOKENS: Record<
-    keyof ContainerDependencies,
-    keyof ContainerDependencies
-> = {
+export const TOKENS: Record<string, keyof ContainerDependencies> = {
     data: 'data',
     example: 'example',
+    logger: 'logger',
 } as const
 
 const container = new AppContainer(containerConfig)
