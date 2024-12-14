@@ -11,6 +11,7 @@ export const TOKENS: Record<string, keyof ContainerDependencies> = {
     data: 'data',
     example: 'example',
     logger: 'logger',
+    utils: 'utils',
 } as const
 
 const container = new AppContainer(containerConfig)
