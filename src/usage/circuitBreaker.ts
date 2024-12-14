@@ -7,10 +7,9 @@ const circuitBreakerOptions: CircuitBreakerOptions = {
     successThreshold: 1,
     timeout: 9000,
 }
-const wait = async (ms: number): Promise<void> =>
-    new Promise(resolve => setTimeout(resolve, ms))
 
 const circuitBreaker = new AppCircuitBreaker(circuitBreakerOptions)
+const { wait } = container.resolve<'utils'>('utils')
 const logger = container.resolve<'logger'>('logger')
 
 const fns = [
