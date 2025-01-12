@@ -1,9 +1,9 @@
 export type Merge<First, Second> = First & Second
 
-type ObjectMergerStrategy<Obj1, Obj2> = (
-    obj1: Obj1,
-    obj2: Obj2,
-) => Merge<Obj1, Obj2>
+type ObjectMergerStrategy<ObjFirst, ObjSecond> = (
+    obj1: ObjFirst,
+    obj2: ObjSecond,
+) => Merge<ObjFirst, ObjSecond>
 
 export class ObjectMerger<ObjFirst, ObjSecond> {
     public constructor(
