@@ -1,9 +1,7 @@
 import type { BinarySearchStrategy } from './binarySearch.types'
 
 export class BinarySearch {
-    public constructor(private strategy: BinarySearchStrategy) {
-        this.strategy = strategy
-    }
+    public constructor(private strategy: BinarySearchStrategy) {}
 
     public setStrategy(strategy: BinarySearchStrategy): void {
         this.strategy = strategy
