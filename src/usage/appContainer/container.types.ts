@@ -7,6 +7,7 @@ export interface Example {
 
 interface AppUtils {
     wait: (timeout: number) => Promise<void>
+    generateRandomInt: (min: number, max: number, length: number) => number[]
 }
 
 export interface ContainerDependencies {
