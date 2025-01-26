@@ -1,4 +1,4 @@
-import { mergeSort } from '@lib/merge-sort'
+import { mergeSort } from '@lib/mergeSort'
 import { container } from '@usage/appContainer'
 
 const logger = container.resolve('logger')
