@@ -1,4 +1,3 @@
-import { extensionRegex } from 'ts-loader/dist/constants'
 import type { LinkedListLoopCallback } from '@lib/linkedList/linkedList.types'
 
 export class Node<Data> {
