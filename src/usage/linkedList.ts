@@ -5,7 +5,7 @@ const logger = container.resolve('logger')
 
 const list = new LinkedList<number>()
 const initialData = [1, 2, 3, 4]
-initialData.forEach(data => list.append(data))
+initialData.forEach(data => list.push(data))
 
 list.remove(2)
 

@@ -23,7 +23,7 @@ export class Node<Data> {
 export class LinkedList<Data> {
     private head: Node<Data> | null = null
 
-    public append(data: Data): void {
+    public push(data: Data): void {
         if (!this.head) {
             this.head = new Node(data)
 
@@ -37,6 +37,22 @@ export class LinkedList<Data> {
 
         const node = new Node(data)
         current?.writeNext(node)
+    }
+
+    public last(): Data {
+        let current: Node<Data> | null = this.head
+
+        while (current?.getNext()) {
+            current = current.getNext()
+        }
+
+        const last = current?.getNext()
+
+        if (last) {
+            last.read()
+        }
+
+        throw new Error('Empty list')
     }
 
     public remove(data: Data): void {
