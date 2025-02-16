@@ -8,8 +8,8 @@ const queue = new Queue<number>()
 
 initialData.forEach(item => queue.enqueue(item))
 
-logger.log('Queue size', queue.getSize())
-logger.log('Queue dequeue', queue.dequeue())
-logger.log('Queue dequeue', queue.dequeue())
-logger.log('Queue size', queue.getSize())
-logger.log('Queue peek', queue.peek())
+logger.log('Queue size: ', queue.getSize())
+logger.log('Queue dequeue: ', queue.dequeue())
+logger.log('Queue dequeue: ', queue.dequeue())
+logger.log('Queue size: ', queue.getSize())
+logger.log('Queue peek: ', queue.peek())

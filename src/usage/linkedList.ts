@@ -16,5 +16,5 @@ logger.log('Linked list first value: ', list.shift())
 logger.log('Linked list last value: ', list.pop())
 
 list.forEach(data => {
-    logger.log('Linked list node value', data)
+    logger.log('Linked list node value:', data)
 })
