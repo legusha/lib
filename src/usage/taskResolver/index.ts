@@ -1,2 +1,6 @@
 import './ad2070'
 import './fullTree.js'
+import './narcissistic'
+import './pangram'
+import './multiples3or5'
+import './deadfishSwim'
